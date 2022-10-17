@@ -14,6 +14,11 @@ namespace GitHubActions
         {
             var a = new Test("asd", "ert");
         }
+
+        void Sample()
+        {
+
+        }
     }
 
     public class Test
