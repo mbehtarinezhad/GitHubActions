@@ -12,7 +12,7 @@ namespace GitHubActions
 
         void Test()
         {
-            var a = new Test("asd");
+            var a = new Test("asd", 3);
         }
 
         void Sample()
