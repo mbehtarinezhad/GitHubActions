@@ -1,0 +1,29 @@
+name: Build and Test workflow
+
+on:
+  push:
+    branches: [ "master" ] # triggers when pushing to master
+  pull_request:
+    branches: [ "master" ] # triggers when a pull request targets master
+
+jobs:
+  build:
+
+    runs-on: $ {{ matrix.os }}
+    strategy:
+      matrix:
+        dotnet-version: ['6.0.x' ]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
