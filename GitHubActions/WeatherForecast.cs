@@ -12,13 +12,13 @@ namespace GitHubActions
 
         void Test()
         {
-            var a = new Test("asd");
+            var a = new Test("asd", "ert");
         }
     }
 
     public class Test
     {
-        public Test(string a)
+        public Test(string a, string b)
         {
 
         }
